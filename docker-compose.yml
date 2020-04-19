@@ -1,0 +1,25 @@
+version: "3.4"
+services:
+
+  server:
+    image: willo05/how_to_ci_cd
+    command: python3 manage.py runserver 0.0.0.0:8000
+    restart: unless-stopped
+    tty: true
+    stop_signal: SIGINT
+    ports:
+      - 80:8000
+#    environment: #
+#      - REDIS_HOST=redis
+#      - REDIS_PORT=6379
+#      - DB_USER=${DB_USER}
+#      - DB_PASSWORD=${DB_PASSWORD}
+#      - DB_NAME=${DB_NAME}
+#      - DB_HOST=db
+#      - DB_PORT=5432
+#    depends_on:
+#      - db
+#    volumes:
+#      - type: bind
+#        source: /home/ubuntu/USERNAME/how_to_ci_cd/cache/
+#        target: /how_to_ci_cd/cache/
