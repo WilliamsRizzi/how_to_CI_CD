@@ -4,7 +4,7 @@ FROM python:3.6-stretch
 RUN apt-get update && apt-get install -y git
 
 #Install the django hello-world requirements
-RUN apt-get install python3-dev python3-pip python3-virtualenv sqlitebrowser
+RUN apt-get install  -y  python3-dev python3-pip python3-virtualenv sqlitebrowser
 
 # Add requirements file used by pip install
 ADD ./requirements.txt /how_to_CI_CD/
