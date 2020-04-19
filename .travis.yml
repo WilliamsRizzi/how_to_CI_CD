@@ -29,12 +29,12 @@ jobs:
         - docker push willo05/how_to_ci_cd:$TRAVIS_COMMIT
         - docker push willo05/how_to_ci_cd
 
-    - stage: deploy
-      if: repo = WilliamsRizzi/how_to_CI_CD AND branch = master AND type = push
-      dist: xenial
-      name: Server deployment
-      language: minimal
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script: bash deploy.sh
+#    - stage: deploy
+#      if: repo = WilliamsRizzi/how_to_CI_CD AND branch = master AND type = push
+#      dist: xenial
+#      name: Server deployment
+#      language: minimal
+#      deploy:
+#        provider: script
+#        skip_cleanup: true
+#        script: bash deploy.sh
