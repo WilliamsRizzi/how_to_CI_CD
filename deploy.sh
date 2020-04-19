@@ -10,7 +10,7 @@ set -o errexit
 ## encrypted_<ID>_iv  ==> is the environment variable of the key contained in TravisCI
 ## cloud.key.enc ==> is the name of the encripted key you committed to your git repository
 ## cloud.key ==> is the name of the decripted key that TravisCI will use to push on the deployment server the new image
-openssl aes-256-cbc -K ${encrypted_<ID>_key} -iv ${encrypted_<ID>_iv} -in cloud.key.enc -out ./cloud.key -d
+openssl aes-256-cbc -K ${encrypted_9b7253ae8d55_key} -iv ${encrypted_9b7253ae8d55_iv} -in cloud.key.enc -out ./cloud.key -d
 
 eval "$(ssh-agent -s)"
 chmod 600 ./cloud.key
