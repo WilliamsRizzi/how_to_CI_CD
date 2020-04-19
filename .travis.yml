@@ -11,15 +11,17 @@ jobs:
       script:
         - python manage.py makemigrations
         - python manage.py test
-        - coverage run --source=. manage.py test
+        - coverage run --source=. manage.py test #push my coverage score on a coverage tracker service
       after_success:
-        - codecov
+        - codecov #push my coverage score on a coverage tracker service
 
     - stage: before_deploy
-      if: repo = WilliamsRizzi/how_to_ci_cd AND branch = master AND type = push
+      # this is to avoid any commits on branche different than the master to push new images on dockerHub
+      if: repo = WilliamsRizzi/how_to_CI_CD AND branch = master AND type = push
       language: minimal
       name: Build Docker image and push to Docker Hub registry
       services: docker
+      # push the new build on dockerHub both as 'latest version and as git tag
       script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - docker build -t willo05/how_to_ci_cd:$TRAVIS_COMMIT .
@@ -28,7 +30,7 @@ jobs:
         - docker push willo05/how_to_ci_cd
 
     - stage: deploy
-      if: repo = WilliamsRizzi/how_to_ci_cd AND branch = master AND type = push
+      if: repo = WilliamsRizzi/how_to_CI_CD AND branch = master AND type = push
       dist: xenial
       name: Server deployment
       language: minimal
