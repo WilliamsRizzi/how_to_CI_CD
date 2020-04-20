@@ -4,7 +4,7 @@ This code refers to the youtube tutorial at:
 https://youtu.be/TW9X6Bjlw4U
 
 The travis build can be seen at:
-https://github.com/WilliamsRizzi/how_to_CI_CD
+https://travis-ci.org/github/WilliamsRizzi/how_to_CI_CD/
 
 The docker image is available at:
 https://hub.docker.com/repository/docker/willo05/how_to_ci_cd/
